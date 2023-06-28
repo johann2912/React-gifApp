@@ -10,10 +10,11 @@ export const AddCategory = ({ onNewCategory }) => {
 
     const onSubmits = (event) => {
         event.preventDefault();
-        const newInputValue = inputValue.trim();
-        if(newInputValue.length <= 1) return;
+        const newInputValue = inputValue.trim()
+        const formatNewInputValue = newInputValue.charAt(0).toUpperCase() + newInputValue.slice(1).toLocaleLowerCase();
+        if(formatNewInputValue.length <= 1) return;
 
-        onNewCategory(newInputValue);
+        onNewCategory(formatNewInputValue);
         setInputValue('');
     };
 

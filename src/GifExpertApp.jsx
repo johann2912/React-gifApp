@@ -3,9 +3,12 @@ import { AddCategory } from "./components/AddCategory";
 
 export const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['One Punch']);
+    const [categories, setCategories] = useState(['Batman']);
 
     const onAddCategory = (newCategory) => {
+
+        if(categories.includes(newCategory)) return;
+
         setCategories([newCategory, ...categories])
     }
 
@@ -29,9 +32,6 @@ export const GifExpertApp = () => {
                     categories.map((category) => <li key={category} >{category}</li>)
                 }
             </ol>
-
-
-
         </>
     )
 }
